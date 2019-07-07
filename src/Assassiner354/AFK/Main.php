@@ -90,7 +90,7 @@ class Main extends PluginBase implements Listener {
       if(isset($this->afk[strtolower($player->getName())])) {
         unset($this->afk[strtolower($player->getName())]);
         $player->setDisplayName($name);
-        $player->sendMessage(TF::GREEN . "You are no longer AFK!");
+        $player->sendMessage(TF::GREEN . "§f[§4Note§fLand] §6Du bist nun nicht mehr AFK!");
       }
     }
     if($this->config->get("no-chat") == "true") {
@@ -114,7 +114,7 @@ class Main extends PluginBase implements Listener {
     switch($cmd->getName()) {
       case "afk":
         if(!$sender instanceof Player) {
-          $sender->sendMessage(TF::RED . "This command can only be used in-game!");
+          $sender->sendMessage(TF::RED . "Dieser commadn kann nur Im Spiel ausgeführt werden!");
           return true;
         }
 
@@ -122,11 +122,11 @@ class Main extends PluginBase implements Listener {
         if(isset($this->afk[strtolower($sender->getName())])) {
           unset($this->afk[strtolower($sender->getName())]);
           $sender->setDisplayName($name);
-          $sender->sendMessage(TF::GREEN . "You are no longer AFK!");
+          $sender->sendMessage(TF::GREEN . "§f[§4Note§fLand] §6Du bist nun nicht mehr AFK!");
         } else {
           $this->afk[strtolower($sender->getName())] = strtolower($sender->getName());
           $sender->setDisplayName(TF::YELLOW . "[AFK] " . $name);
-          $sender->sendMessage(TF::GREEN . "You are now AFK!");
+          $sender->sendMessage(TF::GREEN . "§f[§4Note§fLand] §6Du bist nun AFK!");
         }
         break;
     }
