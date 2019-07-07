@@ -47,7 +47,7 @@ class Main extends PluginBase implements Listener {
     $player = $event->getPlayer();
     if(isset($this->afk[strtolower($player->getName())])) {
       unset($this->afk[strtolower($player->getName())]);
-      $player->sendMessage(TF::GREEN . "You have been removed from AFK Mode!");
+      $player->sendMessage(TF::GREEN . "§f[§4Note§fLand] §6Du wurdest vom AFK Modus entfernt!");
     }
   }
 
@@ -114,7 +114,7 @@ class Main extends PluginBase implements Listener {
     switch($cmd->getName()) {
       case "afk":
         if(!$sender instanceof Player) {
-          $sender->sendMessage(TF::RED . "Dieser commadn kann nur Im Spiel ausgeführt werden!");
+          $sender->sendMessage(TF::RED . "Dieser command kann nur Im Spiel ausgeführt werden!");
           return true;
         }
 
